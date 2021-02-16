@@ -27,9 +27,10 @@ tags: [Holidays, Hawaii]
     
     <end of the useless code... -->
   <!-- CSS -->
-  <link rel="stylesheet" href="/Ajay/assets/css/poole.css">
+<!--  <link rel="stylesheet" href="/Ajay/assets/css/poole.css">
   <link rel="stylesheet" href="/Ajay/assets/css/syntax.css">
   <link rel="stylesheet" href="/Ajay/assets/css/hyde.css">
+-->
 <style>
 div.scrollFormula {
   overflow: auto;
