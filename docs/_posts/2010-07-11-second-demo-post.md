@@ -20,7 +20,7 @@ tags: [Holidays, Hawaii]
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5"> -->
 
   <title>
-    Arrays and Their Multiple Facets &middot; John Gamboa
+    Arrays and Their Multiple Facets &middot; Author Name 
   </title>
     <!-- Useless code that was already here>
     
