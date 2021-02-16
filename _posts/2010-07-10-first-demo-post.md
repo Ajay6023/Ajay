@@ -62,28 +62,7 @@ tags: [Holidays, Hawaii]
     <div class="content container">
       <div class="post">
   <h1 class="post-title">Arrays and Their Multiple Facets</h1>
-  <span class="post-date">31 Jan 2018</span>
-  <p>In
-<a href="https://vaulttech.github.io/2017/08/12/what-are-convolutions/">my first blog post on Convolutions</a>
-(no need to go read there: this blog post is supposed to be
-“self-contained”)
-I discusssed a little about how it would be a good idea to reinterpret
-the discretized version of the 1D function $f$ as a vector with an
-infinite number of dimensions. Basically, the only difference between
-the two ways of viewing this “list of numbers” was that the vector
-lacked a “reference point”, <em>i.e.</em>, the $t$ we had there. Because $f$
-was a
-very nice type of function that was non-zero only for a certain range
-of $t$’s, we found a way to get this reference point back by dropping
-the rest of $f$ where $f$ was always zero.</p>
-
-<p>In this blog post, I want to talk about yet another way in which we
-can look at a vector (and, consequently, at a function $f$). In the
-next few sections, I will recapitulate the ideas presented in
-<a href="https://vaulttech.github.io/2017/08/12/what-are-convolutions/">the blog post on Convolutions</a>,
-explain the other interpretation of vectors, and show how it may be
-useful when training a classifier.</p>
-
+  
 <h2 id="arrays-can-be-reinterpreted-as-discrete-functions">Arrays Can Be Reinterpreted As Discrete Functions</h2>
 
 \[\begin{align*}
