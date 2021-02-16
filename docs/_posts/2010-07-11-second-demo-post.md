@@ -61,10 +61,6 @@ ddd..
 
   <body class="layout-reverse">
 
-    <div class="sidebar">
-  <!--div class="container sidebar-sticky"-->
-</div>
-
 
     <div class="content container">
       <div class="post">
