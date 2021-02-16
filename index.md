@@ -1,13 +1,15 @@
 ---
 layout: default
 ---
-
+# Portfolio
 Introducing Hyde
 28 Dec 2013
 Hyde is a brazen two-column Jekyll theme that pairs a prominent sidebar with uncomplicated content. It’s based on Poole, the Jekyll butler.
 
+
 Built on Poole
 Poole is the Jekyll Butler, serving as an upstanding and effective foundation for Jekyll themes by @mdo. Poole, and every theme built on it (like Hyde here) includes the following:
+
 
 Complete Jekyll setup included (layouts, config, 404, RSS feed, posts, and example page)
 Mobile friendly design and development
