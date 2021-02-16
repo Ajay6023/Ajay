@@ -9,7 +9,7 @@ defaults:
 paginate: 10
 paginate_path: "/blog/page:num/"
 
-title: Christian Ezeani
+title: Jekyll
 subtitle: Full-Stack Developer
 
 # left_side:
