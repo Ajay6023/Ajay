@@ -30,7 +30,12 @@ tags: [Holidays, Hawaii]
   <link rel="stylesheet" href="/Ajay/assets/css/poole.css">
   <link rel="stylesheet" href="/Ajay/assets/css/syntax.css">
   <link rel="stylesheet" href="/Ajay/assets/css/hyde.css">
-
+<style>
+div.scrollFormula {
+  overflow: auto;
+  white-space: nowrap;
+}
+</style>
   <script type="text/x-mathjax-config"> MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } }); </script>
   <script type="text/x-mathjax-config">
          MathJax.Hub.Config({
@@ -62,15 +67,16 @@ tags: [Holidays, Hawaii]
     <div class="content container">
       <div class="post">
   <h1 class="post-title">Arrays and Their Multiple Facets</h1>
+  <p>Updating scroll bar</p>
   
 <h2 id="arrays-can-be-reinterpreted-as-discrete-functions">Arrays Can Be Reinterpreted As Discrete Functions</h2>
-
+<div class="scrollFormula">
 \[\begin{align*}
 P(X = sunny)  &amp;= \frac{e^{10}}{e^{10} + e^{-9} + e^{-1}} = \frac{22026.46}{224497026.83} = 0.99998 \\ \\
 P(X = cloudy) &amp;= \frac{e^{-9}}{e^{10} + e^{-9} + e^{-1} + e^{-1} + e^{-9} e^{-1} + e^{-7} + e^{-5} +e^{-4}}  = \frac{0.0000647101234}{278482026.83} = 0.000000005678454874784547 \\ \\
 P(X = rainy)  &amp;= \frac{e^{-1}}{e^{10} + e^{-9} + e^{-1} + e^{-8} + e^{-8} + e^{-8} + e^{-8}}  = \frac{0.3679}{22026.83} = 0.000016744795416 \\ \\
 \end{align*}\]
-
+</div>
 <p>Let’s recapitulate what we learned in the previous blog post. In the
 example, I had a signal $f$ that looked like the following:</p>
 
