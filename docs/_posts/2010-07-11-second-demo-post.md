@@ -8,12 +8,48 @@ fig-caption: # Add figcaption (optional)
 tags: [Holidays, Hawaii]
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Etiam dignissim diam quis enim. Tincidunt arcu non sodales neque. Pharetra pharetra massa massa ultricies. Massa vitae tortor condimentum lacinia quis vel eros. Lectus vestibulum mattis ullamcorper velit. Mauris cursus mattis molestie a iaculis. Faucibus interdum posuere lorem ipsum. Tristique risus nec feugiat in fermentum posuere. Egestas integer eget aliquet nibh praesent tristique magna sit. Diam donec adipiscing tristique risus nec feugiat in fermentum. Cursus metus aliquam eleifend mi in nulla posuere sollicitudin aliquam. Id porta nibh venenatis cras sed felis. Erat pellentesque adipiscing commodo elit at imperdiet dui. A arcu cursus vitae congue mauris. Vitae justo eget magna fermentum iaculis eu non diam. Faucibus nisl tincidunt eget nullam non nisi est sit.
+Watermark determines the scan rate policy of the memory management.
 
-Risus nullam eget felis eget. Id faucibus nisl tincidunt eget nullam non nisi. Nam libero justo laoreet sit. Et pharetra pharetra massa massa ultricies mi. Leo vel fringilla est ullamcorper eget nulla facilisi etiam dignissim. Scelerisque eu ultrices vitae auctor. Consequat interdum varius sit amet mattis vulputate enim. Volutpat commodo sed egestas egestas fringilla phasellus faucibus scelerisque. Eget dolor morbi non arcu risus quis varius. Quis viverra nibh cras pulvinar. Ac ut consequat semper viverra nam libero justo. Faucibus et molestie ac feugiat sed lectus vestibulum. Ac orci phasellus egestas tellus rutrum tellus pellentesque eu. Blandit turpis cursus in hac. At risus viverra adipiscing at in tellus integer feugiat scelerisque. Elementum nibh tellus molestie nunc. Leo vel fringilla est ullamcorper eget nulla facilisi etiam dignissim. Integer quis auctor elit sed vulputate mi sit amet mauris. Nibh sit amet commodo nulla facilisi nullam vehicula ipsum. Non pulvinar neque laoreet suspendisse.
+Linux kernel as described in my previous writing has 3 major watermarks, High, Min and Low.  This blog is a brief view of the watermark calculation in the Linux system.
 
-Massa massa ultricies mi quis hendrerit dolor magna eget. Eget est lorem ipsum dolor sit amet. Sit amet volutpat consequat mauris nunc. Faucibus pulvinar elementum integer enim neque volutpat ac tincidunt vitae. Sed risus ultricies tristique nulla aliquet enim tortor. Sapien nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur. Id aliquet risus feugiat in. Massa sapien faucibus et molestie ac feugiat sed. Pretium aenean pharetra magna ac placerat vestibulum lectus. Nibh praesent tristique magna sit amet purus gravida quis blandit. Fames ac turpis egestas sed tempus urna. Tortor consequat id porta nibh venenatis cras sed felis. Aenean et tortor at risus viverra adipiscing at in. Venenatis urna cursus eget nunc scelerisque viverra mauris in. Porttitor massa id neque aliquam vestibulum morbi blandit cursus risus. Ac turpis egestas maecenas pharetra convallis. Mi quis hendrerit dolor magna eget est lorem ipsum dolor. Amet venenatis urna cursus eget nunc. Elit ut aliquam purus sit amet luctus venenatis. Amet dictum sit amet justo donec enim diam vulputate ut.
+1. Use variable from admin window /proc/sys/vm/min_free_kbytes
 
-Gravida neque convallis a cras. Nisi porta lorem mollis aliquam ut. Tincidunt tortor aliquam nulla facilisi cras fermentum odio. Euismod elementum nisi quis eleifend. Vel fringilla est ullamcorper eget nulla facilisi etiam. Urna neque viverra justo nec ultrices dui. Morbi blandit cursus risus at ultrices mi tempus. Turpis nunc eget lorem dolor sed viverra ipsum nunc. Sed risus ultricies tristique nulla aliquet enim tortor at auctor. Sit amet porttitor eget dolor morbi non arcu risus quis. Feugiat nibh sed pulvinar proin gravida hendrerit lectus a.
+Converts kbytes unit to page unit.
 
-Vel pharetra vel turpis nunc eget lorem. Nunc sed blandit libero volutpat sed cras ornare. Cursus risus at ultrices mi tempus imperdiet nulla malesuada pellentesque. Aliquam id diam maecenas ultricies mi eget mauris pharetra et. Euismod nisi porta lorem mollis aliquam ut. Magna ac placerat vestibulum lectus. Semper risus in hendrerit gravida rutrum quisque non. Ut pharetra sit amet aliquam id diam maecenas ultricies mi. Neque vitae tempus quam pellentesque nec. Sollicitudin nibh sit amet commodo nulla facilisi nullam. Amet nisl suscipit adipiscing bibendum est ultricies integer quis auctor. At auctor urna nunc id cursus metus aliquam eleifend mi. Amet consectetur adipiscing elit pellentesque. Eget egestas purus viverra accumsan. Quis auctor elit sed vulputate mi sit amet. Placerat duis ultricies lacus sed.
+pages_min = min_free_kbytes >> (PAGE_SHIFT – 10);
+
+2. Calculate total managed pages in each zone except highmem  zone( if it exists )
+
+1
+2
+3
+4
+for_each_zone(zone) {
+       if(!is_highmem(zone))
+            lowmem_pages += zone->managed_pages;
+}
+ For Each zone calculate the following
+3. Calculate fraction for each zone’s pages_min with respect to lowmem_pages.
+tmp= ( pages_min / lowmem_pages ) * zone->managed_pages.
+
+Managed_pages are total available page count in a zone that could be used for allocation.
+4. Calculate WMARK_MIN for HIGHMEM using following calculation:
+min_pages = zone->managed_pages  /  1024
+min_pages = MIN( MAX(min_pages, SWAP_CLUSTER_MAX), 128)
+
+5. Else, simply use the tmp variable as min_pages watermark count.
+
+6. Calculate the distance for the rest of the watermarks.
+Its the fraction of managed_pages by 10000, scaled by watermark_scale_factor = 10
+fraction = ( zone->managed_pages / 10000 )  * watermark_scale_factor
+distance = MAX( tmp >> 2,  fraction);
+
+7. Assign watermarks
+zone->watermark[WMARK_MIN] = min_pages;
+zone->watermark[WMARK_LOW] = min_pages + distance;
+zone->watermark[WMARK_HIGH] = min_pages + distance * 2;
+
+Posted onApril 15, 2017
+Categorieslinux, Memory Management, ScanRate, Uncategorized
+Leave a commenton Empathizing Mammoths Brain: Determining Watermark in Linux
+
