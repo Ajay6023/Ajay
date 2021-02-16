@@ -8,7 +8,6 @@ fig-caption: # Add figcaption (optional)
 tags: [Holidays, Hawaii]
 ---
 
-565656
 
 <html lang="en-us">
 
@@ -64,76 +63,6 @@ ddd..
 
     <div class="sidebar">
   <!--div class="container sidebar-sticky"-->
-  <div class="container">
-    <div class="sidebar-about">
-      <h1>
-        <a href="https://jcbgamboa.github.io">
-          John Gamboa
-        </a>
-      </h1>
-      <p class="lead"></p>
-    </div>
-
-    <nav class="sidebar-nav">
-      <a class="sidebar-nav-item" href="https://jcbgamboa.github.io">Home</a>
-
-      
-
-      
-      
-        
-          
-        
-      
-        
-          
-            <a class="sidebar-nav-item" href="/public/pages/about/">About me</a>
-          
-        
-      
-        
-      
-        
-          
-            <a class="sidebar-nav-item" href="/public/pages/blog_posts/">All Blog Posts</a>
-          
-        
-      
-        
-          
-        
-      
-        
-          
-            <a class="sidebar-nav-item" href="/public/pages/poems/">Poems</a>
-          
-        
-      
-        
-          
-            <a class="sidebar-nav-item" href="/public/pages/songs/">Songs</a>
-          
-        
-      
-        
-      
-        
-          
-        
-      
-
-      <a class="sidebar-nav-item" href="https://jcbgamboa.github.io/computational_linguistics/">Computational Linguistics</a>
-      <a class="sidebar-nav-item" href="https://github.com/jcbgamboa/">GitHub</a>
-
-      <!--
-      <span class="sidebar-nav-item">Currently v</span>
-      -->
-    </nav>
-
-    <!--
-    <p>&copy; 2020. All rights reserved.</p>
-    -->
-  </div>
 </div>
 
 
