@@ -54,82 +54,21 @@ Categorieslinux, Memory Management, ScanRate, Uncategorized
 Leave a commenton Empathizing Mammoths Brain: Determining Watermark in Linux
 
 
-Your new function 
-f
-d
-i
-s
-c
-r
-e
-t
-i
-z
-e
-d
- now could be seen as a vector composed of mostly zeros, except for a small region:
+<p>Your new function $f_{discretized}$ now could be seen as a vector
+composed of mostly zeros, except for a small region:</p>
 
-f
-d
-i
-s
-c
-r
-e
-t
-i
-z
-e
-d
-=
-[
-…
-0
-,
-0
-,
-1
-,
-1
-,
-1
-,
-1
-,
-0
-,
-0
-,
-…
-]
-  
-(1)
- 
-Because this is an infinite array, it is hard to know exactly where it “starts” (or where it “ends”). In the introduction to this post I said this was a “problem”, and we had solved it by dropping the two regions composed exclusively by zeroes:
+\[f_{discretized} = [\dots 0, 0, 1, 1, 1, 1, 0, 0, \dots]\]
 
-f
-d
-i
-s
-c
-r
-e
-t
-i
-z
-e
-d
-=
-[
-1
-,
-1
-,
-1
-,
-1
-]
-  
-(2)
- 
-Of course, we could have retained some of the zeros, if it was for any reason convenient to us. It doesn’t matter much. The main idea here is that we now have a convenient way to represent functions compactly through vectors. This also means that anything that works for vectors (dot products, angles, norms) also should have some interpretation for discrete functions. Think about it!
+<p>Because this is an infinite array, it is hard to know exactly where
+it “starts” (or where it “ends”). In the introduction to this post I
+said this was a “problem”, and we had solved it by dropping
+the two regions composed exclusively by zeroes:</p>
+
+\[f_{discretized} = [1, 1, 1, 1]\]
+
+<p>Of course, we could have retained some of the zeros, if it was for
+any reason convenient to us. It doesn’t matter much. The main idea
+here is that we now have a convenient way to represent functions
+compactly through vectors. This also means that anything that works
+for vectors (dot products, angles, norms) also should have some
+interpretation for discrete functions. Think about it!</p>
