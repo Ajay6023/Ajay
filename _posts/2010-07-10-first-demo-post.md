@@ -83,13 +83,14 @@ Watermark determines the scan rate policy of the memory management.
 example, I had a signal $f$ that looked like the following:</p>
 
 
-
+<div class="scrollFormula">
 \[\begin{align*}
 P(X = sunny)  &amp;= \frac{101}{101 + 379 + 44} = 0.19 \\ \\
 P(X = cloudy) &amp;= \frac{379}{101 + 379 + 44} = 0.72 \\ \\
 P(X = rainy)  &amp;= \frac{44} {101 + 379 + 44} = 0.08 \\ \\
 P(X) &amp;= [0.19, 0.72, 0.08]
 \end{align*}\]
+</div>
 
 <p>While this might seem like an intuitive way of doing things, this is
 normally not the way people transform vectors into probabilities.
@@ -97,11 +98,13 @@ Why? Notice that this worked well because all our scores were
 positive. Take a look at what would have happened if our scores were
 $B = [10, -9, -1]$:</p>
 
+<div class="scrollFormula">
 \[\begin{align*}
 P(X = sunny)  &amp;= \frac{10}{10 - 9 - 1}  = \frac{10}{0} \\ \\
 P(X = cloudy) &amp;= \frac{-9}{10 - 9 - 1}  = \frac{-9}{0} \\ \\
 P(X = rainy)  &amp;= \frac{-1}{10 - 9 - 1}  = \frac{-1}{0} \\ \\
 \end{align*}\]
+</div>
 
 <p><a href="http://i0.kym-cdn.com/photos/images/facebook/000/008/720/Divide_by_Zero_by_milkman_your_dad.jpg"><em>(Ahem)</em></a></p>
 
@@ -111,11 +114,13 @@ $P(X=cloudy)$ would be almost the same as $P(X=sunny)$,
 even though $-9$ seems much “worse” than $10$ (or even worse than
 $-1$). Take a look:</p>
 
+<div class="scrollFormula">
 \[\begin{align*}
 P(X = sunny)  &amp;= \frac{10}{10 + 9 + 1}  = \frac{10}{20} \\ \\
 P(X = cloudy) &amp;= \frac{ 9}{10 + 9 + 1}  = \frac{9}{20}  \\ \\
 P(X = rainy)  &amp;= \frac{ 1}{10 + 9 + 1}  = \frac{1}{20}  \\ \\
 \end{align*}\]
+</div>
 
 <p>You could argue that I should, then, instead, just take the absolute
 values of the scores. This would still not work: the probability
@@ -136,7 +141,9 @@ the values (now $sunny$ has probability almost 1), but it is the
 common way of transforming real numbers into a probability
 distribution:</p>
 
+<div class="scrollFormula">
 \[P(X = x) = \frac{\exp({A_x})}{\sum_{i \in \mathcal{X}}{~\exp({A_i})}}\]
+</div>
 
 <p>This formula goes by the name of <em>softmax</em> and you should totally get
 super used to it: it appears everywhere in Machine Learning!</p>
