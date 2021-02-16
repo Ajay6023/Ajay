@@ -73,9 +73,7 @@ Watermark determines the scan rate policy of the memory management.
 
 <p>Linux kernel as described in my previous writing has 3 major watermarks, High, Min and Low.  This blog is a brief view of the watermark calculation in the Linux system.</p>
 <br><br>
-&nbsp;&nbsp;&nbsp;&nbsp;1. Use variable from admin window /proc/sys/vm/min_free_kbytes
-<br><br>
-Converts kbytes unit to page unit.
+&nbsp;&nbsp;&nbsp;&nbsp;1. Use variable from admin window /proc/sys/vm/min_free_kbytes. Converts kbytes unit to page unit.
 <br><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pages_min = min_free_kbytes >> (PAGE_SHIFT – 10);
 <br><br>
