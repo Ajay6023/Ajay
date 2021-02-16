@@ -68,14 +68,19 @@ div.scrollFormula {
       <div class="post">
   <h1 class="post-title">Empathizing Mammoths Brain: Determining Watermark in Linux</h1>
   
-<h2 id="arrays-can-be-reinterpreted-as-discrete-functions">Arrays Can Be Reinterpreted As Discrete Functions</h2>
-<div class="scrollFormula">
-\[\begin{align*}
-P(X = sunny)  &amp;= \frac{e^{10}}{e^{10} + e^{-9} + e^{-1}} = \frac{22026.46}{224497026.83} = 0.99998 \\ \\
-P(X = cloudy) &amp;= \frac{e^{-9}}{e^{10} + e^{-9} + e^{-1} + e^{-1} + e^{-9} e^{-1} + e^{-7} + e^{-5} +e^{-4}}  = \frac{0.0000647101234}{278482026.83} = 0.000000005678454874784547 \\ \\
-P(X = rainy)  &amp;= \frac{e^{-1}}{e^{10} + e^{-9} + e^{-1} + e^{-8} + e^{-8} + e^{-8} + e^{-8}}  = \frac{0.3679}{22026.83} = 0.000016744795416 \\ \\
-\end{align*}\]
-</div>
+
+Watermark determines the scan rate policy of the memory management.
+
+Linux kernel as described in my previous writing has 3 major watermarks, High, Min and Low.  This blog is a brief view of the watermark calculation in the Linux system.
+
+1. Use variable from admin window /proc/sys/vm/min_free_kbytes
+
+Converts kbytes unit to page unit.
+
+pages_min = min_free_kbytes >> (PAGE_SHIFT – 10);
+
+2. Calculate total managed pages in each zone except highmem  zone( if it exists )
+
 <p>Let’s recapitulate what we learned in the previous blog post. In the
 example, I had a signal $f$ that looked like the following:</p>
 
@@ -114,12 +119,19 @@ P(X = cloudy) &amp;= \frac{ 9}{10 + 9 + 1}  = \frac{9}{20}  \\ \\
 P(X = rainy)  &amp;= \frac{ 1}{10 + 9 + 1}  = \frac{1}{20}  \\ \\
 \end{align*}\]
 
+<p>You could argue that I should, then, instead, just take the absolute
+values of the scores. This would still not work: the probability
+$P(X=cloudy)$ would be almost the same as $P(X=sunny)$,
+even though $-9$ seems much “worse” than $10$ (or even worse than
+$-1$). Take a look:</p>
 
+<div class="scrollFormula">
 \[\begin{align*}
-P(X = sunny)  &amp;= \frac{e^{10}}{e^{10} + e^{-9} + e^{-1}} = \frac{22026.46}{22026.83} = 0.99998 \\ \\
-P(X = cloudy) &amp;= \frac{e^{-9}}{e^{10} + e^{-9} + e^{-1}}  = \frac{0.0001234}{22026.83} = 0.0000000056 \\ \\
-P(X = rainy)  &amp;= \frac{e^{-1}}{e^{10} + e^{-9} + e^{-1}}  = \frac{0.3679}{22026.83} = 0.0000167 \\ \\
+P(X = sunny)  &amp;= \frac{e^{10}}{e^{10} + e^{-9} + e^{-1}} = \frac{22026.46}{224497026.83} = 0.99998 \\ \\
+P(X = cloudy) &amp;= \frac{e^{-9}}{e^{10} + e^{-9} + e^{-1} + e^{-5} + e^{-4} + e^{-1} + e^{-9} + e^{-1} + + e^{-5} + e^{-4} + e^{-7} + e^{-5} + e^{-4} + e^{-3 + e^{-2} + e^{-1}}  = \frac{0.00006488974167101234}{278482026.83} = 0.000000005678454874784547 \\ \\
+P(X = rainy)  &amp;= \frac{e^{-1}}{e^{10} + e^{-9} + e^{-1} + e^{-8} + e^{-8} + e^{-8} + e^{-8} + e^{-5} + e^{-4}}  = \frac{0.3679}{22548026.83} = 0.000016744795416 \\ \\
 \end{align*}\]
+</div>
 
 <p>The exponential function does amplify a lot the discrepancy between
 the values (now $sunny$ has probability almost 1), but it is the
