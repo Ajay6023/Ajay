@@ -2,7 +2,7 @@
 layout: post
 title: Demo post for Gokulvasan
 date: 2021-02-16 22:11:20 +0300
-description: You'll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. # Add post description (optional)
+description: Empathizing Mammoths Brain: Determining Watermark in Linux
 image: # Add image post (optional)
 fig-caption: # Add figcaption (optional)
 tags: [Holidays, Hawaii]
@@ -66,8 +66,7 @@ div.scrollFormula {
 
     <div class="content container">
       <div class="post">
-  <h1 class="post-title">Arrays and Their Multiple Facets</h1>
-  <p>Updating scroll bar</p>
+  <h1 class="post-title">Empathizing Mammoths Brain: Determining Watermark in Linux</h1>
   
 <h2 id="arrays-can-be-reinterpreted-as-discrete-functions">Arrays Can Be Reinterpreted As Discrete Functions</h2>
 <div class="scrollFormula">
