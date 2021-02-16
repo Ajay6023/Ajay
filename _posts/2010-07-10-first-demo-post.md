@@ -71,15 +71,15 @@ div.scrollFormula {
 
 Watermark determines the scan rate policy of the memory management.
 
-Linux kernel as described in my previous writing has 3 major watermarks, High, Min and Low.  This blog is a brief view of the watermark calculation in the Linux system.
-
-1. Use variable from admin window /proc/sys/vm/min_free_kbytes
-
+<p>Linux kernel as described in my previous writing has 3 major watermarks, High, Min and Low.  This blog is a brief view of the watermark calculation in the Linux system.</p>
+<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;1. Use variable from admin window /proc/sys/vm/min_free_kbytes
+<br><br>
 Converts kbytes unit to page unit.
-
-pages_min = min_free_kbytes >> (PAGE_SHIFT – 10);
-
-2. Calculate total managed pages in each zone except highmem  zone( if it exists )
+<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pages_min = min_free_kbytes >> (PAGE_SHIFT – 10);
+<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;2. Calculate total managed pages in each zone except highmem  zone( if it exists )
 
 <p>Let’s recapitulate what we learned in the previous blog post. In the
 example, I had a signal $f$ that looked like the following:</p>
