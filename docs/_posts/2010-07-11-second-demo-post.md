@@ -8,7 +8,7 @@ fig-caption: # Add figcaption (optional)
 tags: [Holidays, Hawaii]
 ---
 
-
+565656
 
 <html lang="en-us">
 
@@ -29,11 +29,11 @@ tags: [Holidays, Hawaii]
     
     <end of the useless code... -->
 
-
+ddd..
   <!-- CSS -->
-  <link rel="stylesheet" href="/assets/css/poole.css">
-  <link rel="stylesheet" href="/assets/css/syntax.css">
-  <link rel="stylesheet" href="/assets/css/hyde.css">
+  <link rel="stylesheet" href="/Ajay/assets/css/poole.css">
+  <link rel="stylesheet" href="/Ajay/assets/css/syntax.css">
+  <link rel="stylesheet" href="/Ajay/assets/css/hyde.css">
 
   <script type="text/x-mathjax-config"> MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } }); </script>
   <script type="text/x-mathjax-config">
