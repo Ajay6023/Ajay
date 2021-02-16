@@ -27,8 +27,6 @@ tags: [Holidays, Hawaii]
       Arrays and Their Multiple Facets &middot; John Gamboa
     
     <end of the useless code... -->
-
-ddd..
   <!-- CSS -->
   <link rel="stylesheet" href="/Ajay/assets/css/poole.css">
   <link rel="stylesheet" href="/Ajay/assets/css/syntax.css">
