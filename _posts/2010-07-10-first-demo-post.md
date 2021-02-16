@@ -88,8 +88,8 @@ useful when training a classifier.</p>
 
 \[\begin{align*}
 P(X = sunny)  &amp;= \frac{e^{10}}{e^{10} + e^{-9} + e^{-1}} = \frac{22026.46}{224497026.83} = 0.99998 \\ \\
-P(X = cloudy) &amp;= \frac{e^{-9}}{e^{10} + e^{-9} + e^{-1}}  = \frac{0.0000647101234}{278482026.83} = 0.000000005678454874784547 \\ \\
-P(X = rainy)  &amp;= \frac{e^{-1}}{e^{10} + e^{-9} + e^{-1}}  = \frac{0.3679}{22026.83} = 0.000016744795416 \\ \\
+P(X = cloudy) &amp;= \frac{e^{-9}}{e^{10} + e^{-9} + e^{-1} + e^{-1} + e^{-9} e^{-1} + e^{-7} + e^{-5} +e^{-4}}  = \frac{0.0000647101234}{278482026.83} = 0.000000005678454874784547 \\ \\
+P(X = rainy)  &amp;= \frac{e^{-1}}{e^{10} + e^{-9} + e^{-1} + e^{-8} + e^{-8} + e^{-8} + e^{-8}}  = \frac{0.3679}{22026.83} = 0.000016744795416 \\ \\
 \end{align*}\]
 
 <p>Let’s recapitulate what we learned in the previous blog post. In the
